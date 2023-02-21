@@ -1,12 +1,18 @@
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   text?: string;
-  icon?: JSX.Element;
+  icon?: JSX.Element | null;
   size: "sm" | "md" | "lg";
   btType?: "purple" | "white";
 }
 
 export default function Button(props: ButtonProps): JSX.Element {
-  const { text, icon, size = "md", btType = "purple", ...rest } = props;
+  const {
+    text = "",
+    icon = null,
+    size = "md",
+    btType = "purple",
+    ...rest
+  } = props;
 
   if (btType == "white") return <button></button>;
 
