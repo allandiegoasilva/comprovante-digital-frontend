@@ -1,11 +1,11 @@
 import { createContext, useState } from "react";
 
-interface Tabs {
+export interface INavigatorBottomContext {
   selectedTab: string;
   changeTab: (tab: string) => void;
 }
 
-export const NavigatorBottomContext = createContext<Tabs>({
+export const NavigatorBottomContext = createContext<INavigatorBottomContext>({
   selectedTab: "home",
   changeTab: (tab: string) => {},
 });
