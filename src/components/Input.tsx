@@ -5,6 +5,7 @@ interface InputProps extends React.HtmlHTMLAttributes<HTMLInputElement> {
   invalid?: boolean;
   bg?: "white" | "transparent";
   icon?: JSX.Element;
+  shadow?: boolean;
 }
 
 export default function Input(props: InputProps) {
@@ -13,6 +14,7 @@ export default function Input(props: InputProps) {
     icon = undefined,
     bg = "white",
     invalid = false,
+    shadow = true, 
     ...rest
   } = props;
   return (
@@ -25,8 +27,9 @@ export default function Input(props: InputProps) {
         <input
           type={type}
           className={`
-       h-10  rounded-lg shadow-sm w-full font-normal px-3 py-6 outline-none
+       h-10  rounded-lg w-full font-normal px-3 py-6 outline-none
        ${bg == "white" ? "bg-white" : "bg-trasparent"}
+       ${shadow && "shadow-sm"}
       `}
           {...rest}
         />
