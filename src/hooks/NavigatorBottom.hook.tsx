@@ -1,3 +1,4 @@
+import { Tabs } from "@/enums/Tabs.enum";
 import { createContext, useState } from "react";
 
 export interface INavigatorBottomContext {
@@ -6,12 +7,12 @@ export interface INavigatorBottomContext {
 }
 
 export const NavigatorBottomContext = createContext<INavigatorBottomContext>({
-  selectedTab: "home",
+  selectedTab: Tabs.Home,
   changeTab: (tab: string) => {},
-});
+});   
 
 export default function NavigatorBottomProvider({ children }: any) {
-  const [selectedTab, setSelectedTab] = useState<string>("home");
+  const [selectedTab, setSelectedTab] = useState<string>(Tabs.Home);
 
   function changeTab(tab: string) {
     setSelectedTab(tab);
