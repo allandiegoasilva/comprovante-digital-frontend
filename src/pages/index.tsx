@@ -35,16 +35,17 @@ export default function App() {
   ]
 
   return (
-    <Template>
-      {pages.map((page : Page, index : number) => selectedTab == page.id && (
-      <AnimatePresence key={index}>
+    <Template> 
+      {pages.map((page : Page) => selectedTab == page.id && (
+      <AnimatePresence key={page.id}>
        <motion.div
+       className="h-full"
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: -10, opacity: 0 }}
         transition={{ duration: 0.2 }}
        >
-        { page.component }
+        { page.component } 
        </motion.div>
       </AnimatePresence>      
       ))}
